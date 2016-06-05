@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'users/new'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -16,8 +18,13 @@ Rails.application.routes.draw do
   #   resources :products
     
     root 'static_pages#home'
-    get 'static_pages/help'  # get means the method is get
-    get 'static_pages/about'
+    get 'help' => 'static_pages#help'
+    get 'about' => 'static_pages#about'
+    get 'contact' => 'static_pages#contact'
+
+  # routes for users
+    get 'signup' => 'users#new'
+
   # Example resource route with options:
   #   resources :products do
   #     member do
